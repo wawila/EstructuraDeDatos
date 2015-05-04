@@ -26,19 +26,10 @@ void OrdenarArreglo::deleteIndex(int pos, int array[])
     cout<<"Pos: "<<pos<<" #: "<<array[pos]<<endl;
         for(int i = pos; i < (array_size); i++)
         {
-            /**
-              Si borro este if y lo dejo que agarre el espacio
-              basura puede funcionar mas de una ves, sino solo
-              solo funciona una ves, la segundo termina de
-              llenar el arreglo con -1
-              */
-       //    if(i != array_size-1)
-       //     {
             array[i] = array[i+1];
             array[i+1] = -1;
             }
-       // }
-
+      
     llenarArray("Ordenando");
 }
 
