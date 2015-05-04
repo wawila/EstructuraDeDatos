@@ -11,6 +11,9 @@ OrdenarArreglo::OrdenarArreglo(QWidget *parent) :
     cont = 0;
     borrados = 0;
     ui->setupUi(this);
+    ui->pushOrdenar->hide();
+    ui->listWidget->clear();
+    ui->listWidget_2->clear();
 }
 
 OrdenarArreglo::~OrdenarArreglo()
@@ -29,12 +32,12 @@ void OrdenarArreglo::deleteIndex(int pos, int array[])
               solo funciona una ves, la segundo termina de
               llenar el arreglo con -1
               */
-           if(i != array_size-1)
-            {
+       //    if(i != array_size-1)
+       //     {
             array[i] = array[i+1];
             array[i+1] = -1;
             }
-        }
+       // }
 
     llenarArray("Ordenando");
 }
@@ -48,7 +51,11 @@ void OrdenarArreglo::on_agregarArray_clicked()
         QString s;
         ui->listWidget_2->addItem(s.number(ui->spinOrdenar->value()));
         cont++;
+        ui->pushOrdenar->hide();
     }
+    else
+        ui->pushOrdenar->show();
+
 }
 
 void OrdenarArreglo::on_pushOrdenar_clicked()
@@ -93,6 +100,7 @@ void OrdenarArreglo::on_pushOrdenar_clicked()
     }
 
     k = 0;
+    ui->listWidget_2->clear();
 }
 
 void OrdenarArreglo::llenarArray(string a)

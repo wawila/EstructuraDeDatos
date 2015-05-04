@@ -26,6 +26,7 @@ Arreglos::Arreglos(QWidget *parent) :
     size = 15;
     agregados = 0;
     actual = 0;
+
     imprimirPantalla();
 }
 

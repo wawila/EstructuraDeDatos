@@ -175,27 +175,31 @@ void ApuntadoresCartas::on_pushEliminar_clicked()
 
 void ApuntadoresCartas::on_pushBuscar_clicked()
 {
+    ui->resultBuscar->clear();
     int x = ui->spinBuscar->value();
-
     Cartas* a = buscar(x);
     QString t = " ";
-    if(a == NULL)
+
+    if(a != NULL)
     {
-        t.append(" NULL");
-        return;
-    }
     int y = a->numero;
     t.append(t.number(y));
 
-    /*
-     * Por alguna razon el siguiente nunca es NULL
-     */
-    if(a->sig != NULL)
-    {   cout<<a->sig->numero<<endl;
+    if(a == final)
+    {
+        t.append(" - Ultimo");
+    }
+    else if(a->sig != NULL)
+    {
+        cout<<a->sig->numero<<endl;
         t.append(" -> ");
         y = a->sig->numero;
         t.append(t.number(y));
     }
+
+    }
+    else
+        t.append(" - No Existe");
 
     ui->resultBuscar->setText(t);
 }
