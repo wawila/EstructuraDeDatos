@@ -10,7 +10,7 @@ SemaforoGrafo::SemaforoGrafo(QWidget *parent) :
         AB = new Calle("AB");
         AC = new Calle("AC");
         AD = new Calle("AD");
-        BA = new Calle("ba");
+        BA = new Calle("BA");
         BC = new Calle("BC");
         BD = new Calle("BD");
         DA = new Calle("DA");
@@ -102,30 +102,86 @@ SemaforoGrafo::SemaforoGrafo(QWidget *parent) :
         label.push_back(ui->EC);
         label.push_back(ui->ED);
 
+        colores.append("BLANCO");
+        colores.append("AZUL");
+        colores.append("ROJO");
+        colores.append("VERDE");
+        colores.append("AMARILLO");
+
+
+        listo.clear();
+
+}
+
+void SemaforoGrafo::imprimirCalles()
+{
+    cout<<"AB - "<<AB->color.toStdString()<<endl;
+    cout<<"AC - "<<AC->color.toStdString()<<endl;
+    cout<<"AD - "<<AD->color.toStdString()<<endl;
+    cout<<"BA - "<<BA->color.toStdString()<<endl;
+    cout<<"BC - "<<BC->color.toStdString()<<endl;
+    cout<<"BD - "<<BD->color.toStdString()<<endl;
+    cout<<"DA - "<<DA->color.toStdString()<<endl;
+    cout<<"DB - "<<DB->color.toStdString()<<endl;
+    cout<<"DC - "<<DC->color.toStdString()<<endl;
+    cout<<"EA - "<<EA->color.toStdString()<<endl;
+    cout<<"EB - "<<EB->color.toStdString()<<endl;
+    cout<<"EC - "<<EC->color.toStdString()<<endl;
+    cout<<"ED - "<<ED->color.toStdString()<<endl;
+}
+
+bool SemaforoGrafo::chequearBlancos()
+{
+    for(int i = 0; i < calles.size(); i++)
+    {
+        if(calles[i]->color == "BLANCO")
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool SemaforoGrafo::grupoPintado(Calle *calle)
+{
+    for(int i = 0; i < calle->getAdyacente().size(); i++)
+    {
+        for(int j = 0; j < listo.size(); j++)
+        {
+            if(calle->getAdyacente()[i]->getNombre() == listo[j]->getNombre())
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void SemaforoGrafo::pintar()
 {
+    for(int c = 1; c < colores.size(); c++)
+    {
+        for(int i = 0; i < calles.size(); i++)
+        {
+            if(calles[i]->getColor() == "BLANCO")
+            {
+                if(grupoPintado(calles[i]) == false)
+                {
+                   calles[i]->cambiarColor(colores[c]);
+                   listo.append(calles[i]);
+                }
+            }
+        }
+
+        cout<<"---Color---"<<colores[c].toStdString()<<endl;
+    }
 
 }
 
 void SemaforoGrafo::on_pushPintar_clicked()
 {
    pintar();
-
-   cout<<"AB - "<<AB->color.toStdString()<<endl;
-   cout<<"AC - "<<AC->color.toStdString()<<endl;
-   cout<<"AD - "<<AD->color.toStdString()<<endl;
-   cout<<"BA - "<<BA->color.toStdString()<<endl;
-   cout<<"BC - "<<BC->color.toStdString()<<endl;
-   cout<<"BD - "<<BD->color.toStdString()<<endl;
-   cout<<"DA - "<<DA->color.toStdString()<<endl;
-   cout<<"DB - "<<DB->color.toStdString()<<endl;
-   cout<<"DC - "<<DC->color.toStdString()<<endl;
-   cout<<"EA - "<<EA->color.toStdString()<<endl;
-   cout<<"EB - "<<EB->color.toStdString()<<endl;
-   cout<<"EC - "<<EC->color.toStdString()<<endl;
-   cout<<"ED - "<<ED->color.toStdString()<<endl;
+   imprimirCalles();
 }
 
 SemaforoGrafo::~SemaforoGrafo()

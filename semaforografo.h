@@ -2,7 +2,6 @@
 #define SEMAFOROGRAFO_H
 
 #include <QDialog>
-#include <vector>
 #include <iostream>
 #include <QLabel>
 
@@ -13,12 +12,16 @@ class Calle
 public:
     QString nombre;
     QString color;
-    vector<Calle*> adyacentes;
+    QList<Calle*> adyacentes;
 
-    Calle(QString nom){ nombre = nom; }
+    Calle(QString nom){ nombre = nom;
+                        color = "BLANCO";}
+    QList<Calle *> getAdyacente(){ return adyacentes; }
     QString getNombre(){ return nombre; }
-    vector<Calle *> getAdyacente(){ return adyacentes; }
     QString getColor() { return color; }
+
+    void setNombre(QString n){ nombre = n; }
+    void agregarCalle(Calle* calle) { adyacentes.append(calle); }
     void cambiarColor(QString c){ color = c; }
 };
 
@@ -46,11 +49,19 @@ public:
     Calle* EB;
     Calle* EC;
     Calle* ED;
-    vector<Calle*> calles;
-    vector<QLabel *> label;
+
+    QList<QString> colores;
+    QList<Calle*> calles;
+    QList<Calle*> listo;
+    QList<QLabel *> label;
 
     void pintar();
+    void imprimirCalles();
+    bool grupoPintado(Calle* calle);
+    void setCalle(QList<Calle*> lista) { calles = lista; }
+    bool chequearBlancos();
 
+    QList<Calle*> getCalles(){ return calles; }
 
     ~SemaforoGrafo();
 
