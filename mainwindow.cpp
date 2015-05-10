@@ -50,3 +50,19 @@ void MainWindow::on_botonApuntador_clicked()
     window.exec();
 
 }
+
+void MainWindow::on_botonPilas_clicked()
+{
+    cout<<"Se apreto el Boton: Pilas"<<endl;
+    Pilas window;
+    window.setModal(true);
+    window.exec();
+}
+
+void MainWindow::on_botonColas_clicked()
+{
+    cout<<"Se apreto el Boton: Colas"<<endl;
+    Colas window;
+    window.setModal(true);
+    window.exec();
+}

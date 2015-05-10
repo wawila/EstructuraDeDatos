@@ -17,17 +17,23 @@ SOURCES += main.cpp\
     semaforografo.cpp \
     ordenararreglo.cpp \
     arreglos.cpp \
-    apuntadorescartas.cpp
+    apuntadorescartas.cpp \
+    pilas.cpp \
+    colas.cpp
 
 HEADERS  += mainwindow.h \
     semaforografo.h \
     ordenararreglo.h \
     arreglos.h \
-    apuntadorescartas.h
+    apuntadorescartas.h \
+    pilas.h \
+    colas.h
 
 FORMS    += mainwindow.ui \
     semaforografo.ui \
     ordenararreglo.ui \
     arreglos.ui \
-    apuntadorescartas.ui
+    apuntadorescartas.ui \
+    pilas.ui \
+    colas.ui
 

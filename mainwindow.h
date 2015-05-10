@@ -10,6 +10,8 @@
 #include <arreglos.h>
 #include <apuntadorescartas.h>
 #include <semaforografo.h>
+#include <pilas.h>
+#include <colas.h>
 
 using namespace std;
 
@@ -29,6 +31,8 @@ private slots:
     void on_botonOrdenar_clicked();
     void on_botonArray_clicked();
     void on_botonApuntador_clicked();
+    void on_botonPilas_clicked();
+    void on_botonColas_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>407</height>
+    <width>368</width>
+    <height>376</height>
    </rect>
   </property>
   <property name="font">
@@ -122,13 +122,67 @@
      <string>Tarea 4: Apuntadores</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="botonCursores">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>210</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tarea 5: Cursores</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonPilas">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>250</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tarea 6: Pilas</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonColas">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>290</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tarea 7: Colas</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>368</width>
      <height>18</height>
     </rect>
    </property>

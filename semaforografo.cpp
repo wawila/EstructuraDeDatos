@@ -115,6 +115,11 @@ SemaforoGrafo::SemaforoGrafo(QWidget *parent) :
 
 void SemaforoGrafo::imprimirCalles()
 {
+    for(int i = 0; i < listo.size(); i++)
+    {
+        cout<<listo[i]->nombre.toStdString()<<" - Color: "<<listo[i]->color.toStdString()<<endl;
+    }
+
     cout<<"AB - "<<AB->color.toStdString()<<endl;
     cout<<"AC - "<<AC->color.toStdString()<<endl;
     cout<<"AD - "<<AD->color.toStdString()<<endl;
@@ -128,27 +133,17 @@ void SemaforoGrafo::imprimirCalles()
     cout<<"EB - "<<EB->color.toStdString()<<endl;
     cout<<"EC - "<<EC->color.toStdString()<<endl;
     cout<<"ED - "<<ED->color.toStdString()<<endl;
-}
 
-bool SemaforoGrafo::chequearBlancos()
-{
-    for(int i = 0; i < calles.size(); i++)
-    {
-        if(calles[i]->color == "BLANCO")
-        {
-            return true;
-        }
-    }
-    return false;
 }
 
 bool SemaforoGrafo::grupoPintado(Calle *calle)
 {
+
     for(int i = 0; i < calle->getAdyacente().size(); i++)
     {
         for(int j = 0; j < listo.size(); j++)
         {
-            if(calle->getAdyacente()[i]->getNombre() == listo[j]->getNombre())
+            if(calle->adyacentes[i]->nombre == listo[j]->nombre)
             {
                 return true;
             }
@@ -159,13 +154,14 @@ bool SemaforoGrafo::grupoPintado(Calle *calle)
 
 void SemaforoGrafo::pintar()
 {
+    listo.clear();
     for(int c = 1; c < colores.size(); c++)
     {
         for(int i = 0; i < calles.size(); i++)
         {
             if(calles[i]->getColor() == "BLANCO")
             {
-                if(grupoPintado(calles[i]) == false)
+                if(!grupoPintado(calles[i]))
                 {
                    calles[i]->cambiarColor(colores[c]);
                    listo.append(calles[i]);

@@ -21,8 +21,9 @@ public:
     QString getColor() { return color; }
 
     void setNombre(QString n){ nombre = n; }
-    void agregarCalle(Calle* calle) { adyacentes.append(calle); }
     void cambiarColor(QString c){ color = c; }
+
+    ~Calle();
 };
 
 namespace Ui {
@@ -58,8 +59,6 @@ public:
     void pintar();
     void imprimirCalles();
     bool grupoPintado(Calle* calle);
-    void setCalle(QList<Calle*> lista) { calles = lista; }
-    bool chequearBlancos();
 
     QList<Calle*> getCalles(){ return calles; }
 
