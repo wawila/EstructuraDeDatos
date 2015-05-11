@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     arreglos.cpp \
     apuntadorescartas.cpp \
     pilas.cpp \
-    colas.cpp
+    colas.cpp \
+    cursores.cpp
 
 HEADERS  += mainwindow.h \
     semaforografo.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     arreglos.h \
     apuntadorescartas.h \
     pilas.h \
-    colas.h
+    colas.h \
+    cursores.h
 
 FORMS    += mainwindow.ui \
     semaforografo.ui \
@@ -35,5 +37,6 @@ FORMS    += mainwindow.ui \
     arreglos.ui \
     apuntadorescartas.ui \
     pilas.ui \
-    colas.ui
+    colas.ui \
+    cursores.ui
 

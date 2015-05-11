@@ -66,3 +66,11 @@ void MainWindow::on_botonColas_clicked()
     window.setModal(true);
     window.exec();
 }
+
+void MainWindow::on_botonCursores_clicked()
+{
+    cout<<"Se apreto el Boton: Cursores"<<endl;
+    Cursores window;
+    window.setModal(true);
+    window.exec();
+}

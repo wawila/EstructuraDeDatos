@@ -12,6 +12,7 @@
 #include <semaforografo.h>
 #include <pilas.h>
 #include <colas.h>
+#include <cursores.h>
 
 using namespace std;
 
@@ -33,6 +34,7 @@ private slots:
     void on_botonApuntador_clicked();
     void on_botonPilas_clicked();
     void on_botonColas_clicked();
+    void on_botonCursores_clicked();
 
 private:
     Ui::MainWindow *ui;
